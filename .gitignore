@@ -26,6 +26,9 @@ Snapshot.bin
 *.obj
 *.lib
 *.dll
+!lan_filesync.exe
+!lan_filesync.exp
+!lan_filesync.lib
 
 # IDE and NuGet folders
 .vs/
