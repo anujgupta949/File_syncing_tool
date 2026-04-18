@@ -1,0 +1,41 @@
+# Build output
+/build/
+
+# Visual Studio generated
+/.vs/
+*.suo
+*.user
+*.VC.db
+*.opendb
+*.ilk
+*.pdb
+*.obj
+*.lib
+*.exp
+*.rdi
+
+
+
+# Snapshots and generated artifacts
+Snapshot.json
+Snapshot.bin
+
+# Binary files
+*.exe
+*.o
+*.obj
+*.lib
+*.dll
+
+# IDE and NuGet folders
+.vs/
+.dotnet-cli/
+.nuget/
+.nuget-config/
+NuGet/
+obj/
+bin/
+
+# Temp files
+*~
+temp_test/

@@ -1,0 +1,51 @@
+<Page
+    x:Class="LanFileSync.WinUI.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer>
+        <StackPanel Padding="24" Spacing="18">
+            <Border
+                Padding="20"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="18">
+                <StackPanel x:Name="SettingsRoot" Spacing="14">
+                    <TextBlock FontSize="24" FontWeight="SemiBold" Text="Backend Configuration" />
+
+                    <TextBlock Text="Backend executable (lan_filesync.exe)" />
+                    <Grid ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" Text="{Binding BackendExecutablePath, Mode=TwoWay}" />
+                        <Button Grid.Column="1" Click="OnBrowseExecutable" Content="Browse" />
+                        <Button Grid.Column="2" Click="OnAutoDetect" Content="Auto Detect" />
+                    </Grid>
+
+                    <TextBlock Text="Default port" />
+                    <TextBox Text="{Binding DefaultPort, Mode=TwoWay}" />
+
+                    <TextBlock Text="Resolved backend path" />
+                    <TextBlock
+                        x:Name="ResolvedPathText"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        TextWrapping="WrapWholeWords" />
+
+                    <TextBlock Text="Settings file" />
+                    <TextBlock
+                        x:Name="SettingsPathText"
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        TextWrapping="WrapWholeWords" />
+
+                    <Button
+                        HorizontalAlignment="Left"
+                        Click="OnSaveSettings"
+                        Content="Save Settings" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

@@ -1,0 +1,81 @@
+<Page
+    x:Class="LanFileSync.WinUI.Views.DashboardPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer>
+        <StackPanel Padding="24" Spacing="18">
+            <Border
+                Padding="22"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="18">
+                <StackPanel Spacing="10">
+                    <TextBlock FontSize="30" FontWeight="SemiBold" Text="LAN File Sync Control Center" />
+                    <TextBlock
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Text="Keep your existing native backend, but drive it from a cleaner Windows 11 style shell." />
+                    <TextBlock FontWeight="SemiBold" Text="{Binding LastOperation}" TextWrapping="WrapWholeWords" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Padding="20"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="18">
+                <StackPanel Spacing="12">
+                    <TextBlock FontSize="22" FontWeight="SemiBold" Text="Serve a Folder" />
+                    <TextBlock
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Text="Host a local folder and wait for another machine to connect." />
+                    <TextBlock FontWeight="SemiBold" Text="{Binding ServiceStateText}" />
+                    <Button
+                        HorizontalAlignment="Left"
+                        Click="OnOpenServe"
+                        Content="Open Serve Page" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Padding="20"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="18">
+                <StackPanel Spacing="12">
+                    <TextBlock FontSize="22" FontWeight="SemiBold" Text="Run a Sync" />
+                    <TextBlock
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Text="Connect to a running server and execute your existing sync flow." />
+                    <TextBlock FontWeight="SemiBold" Text="{Binding SyncStateText}" />
+                    <Button
+                        HorizontalAlignment="Left"
+                        Click="OnOpenSync"
+                        Content="Open Sync Page" />
+                </StackPanel>
+            </Border>
+
+            <Border
+                Padding="20"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="18">
+                <StackPanel Spacing="12">
+                    <TextBlock FontSize="22" FontWeight="SemiBold" Text="Backend Status" />
+                    <TextBlock FontWeight="SemiBold" Text="{Binding BackendAvailabilityText}" />
+                    <TextBlock
+                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                        Text="{Binding BackendSummaryText}"
+                        TextWrapping="WrapWholeWords" />
+                    <Button
+                        HorizontalAlignment="Left"
+                        Click="OnOpenSettings"
+                        Content="Open Settings" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
