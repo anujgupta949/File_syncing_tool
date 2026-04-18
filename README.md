@@ -9,7 +9,7 @@ This project is a Windows LAN file-sync foundation that currently does:
 - Whole-file transfer for new or incompatible files
 - Block-based delta sync for large files when the destination already has an older copy
 
-## Build (CMake + MSVC)
+## Build (CMake + MSVC) - Backend CLI
 
 ```powershell
 cmake -S . -B build -G "Visual Studio 17 2022"
@@ -17,10 +17,36 @@ cmake --build build --config Release
 ```
 
 Binary path (typical):
-
 - `build/Release/lan_filesync.exe`
 
-## Usage
+## Build - WinUI Frontend
+
+The project includes a modern Windows UI frontend located in the `winui/` directory.
+
+### Build via Visual Studio
+1. Open `winui/LanFileSync.WinUI.sln` in **Visual Studio 2022**.
+2. Select the **x64** platform and **Debug** or **Release** configuration.
+3. Press **F5** to build and run.
+
+### Build via .NET CLI
+```powershell
+dotnet build .\winui\LanFileSync.WinUI\LanFileSync.WinUI.csproj -c Release -p:Platform=x64
+```
+
+## Creating a Distribution Release
+
+To share the app with others who don't have Visual Studio installed:
+
+1. **Publish the App**:
+   Run this command to create a "Standalone" folder containing everything needed to run:
+   ```powershell
+   dotnet publish .\winui\LanFileSync.WinUI\LanFileSync.WinUI.csproj -c Release -p:Platform=x64 --self-contained true
+   ```
+
+2. **Zip the Output**:
+   Go to `winui\LanFileSync.WinUI\bin\x64\Release\net6.0-windows10.0.19041.0\publish`, zip the entire contents, and upload it to **GitHub Releases**.
+
+## Usage (CLI Backend)
 
 ```text
 lan_filesync snapshot <folder> [output_json]
